@@ -1,0 +1,59 @@
+﻿@model IEnumerable<AppVehiculos.Entidades.Vehiculo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" style="background-color:coral ; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none;" >Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Placa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Año)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MarcaId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Placa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Año)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MarcaId)
+            </td>
+            <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-sm", style = "text-decoration:none; background-color: rgba(0, 0, 255, 0.6); color: white; font-weight: bold;" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id },new { @class = "btn btn-sm", style = "text-decoration:none; background-color: rgba(0, 255, 0, 0.6); color: white; font-weight: bold;" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-sm", style = "text-decoration:none; background-color: rgba(255, 0, 0, 0.6); color: white; font-weight: bold;" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
